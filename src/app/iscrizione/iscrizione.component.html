@@ -1,0 +1,47 @@
+<app-lista />
+
+<form [formGroup]="iscrizioneForm" class="signup-form">
+    <h2>Form di iscrizione</h2>
+
+    <div class="control-row">
+        <div class="control">
+        <label for="tipo">Tipo campo</label>
+        <!-- select tennis/calcio  -->
+
+        </div>
+    </div>
+
+
+    <div class="control-row">
+        <div class="control">
+        <label for="campo">Campo</label>
+        <select id="campo" formControlName="campo">
+
+        </select>
+        </div>
+    </div>
+
+    @if(iscrizioneForm.get('tipo')?.value === 'tennis'){
+        <div class="control-row">
+            <div class="control">
+            </div>
+        </div>
+    }
+
+    <p class="form-actions">
+        <button type="submit" class="button" (click)="onSignup()">Iscriviti</button>
+    </p>
+
+    @if(iscrizioneForm.dirty &&iscrizioneForm.invalid && iscrizioneForm.touched){
+        <p class="control-error">
+        Form invalid. Please check the input fields.
+        </p>
+    }
+
+    @if(isIscrizioneInviata){
+        <p class="control-success">
+        <!-- Informazioni relative all'iscrizione confermata -->
+        </p>
+    }
+
+</form>
